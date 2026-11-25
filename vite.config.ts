@@ -6,8 +6,10 @@ import {defineConfig} from 'vite';
 
 export default defineConfig(() => {
   return {
+    // Vercel serves projects from the domain root by default. Set
+    // VITE_BASE_PATH only when deploying the site under a subpath.
+    base: process.env.VITE_BASE_PATH || '/',
     plugins: [
-     base: process.env.VITE_BASE_PATH  || '/bbbb',
       react(),
       tailwindcss(),
       // Copies src/assets into dist/ so root-relative URLs like

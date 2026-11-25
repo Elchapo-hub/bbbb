@@ -24,7 +24,14 @@ export function verifyPassword(password: string, storedHash: string): boolean {
 export function getDb(dbPath?: string): Database.Database {
   if (dbInstance && !dbPath) return dbInstance;
 
-  const targetPath = dbPath ?? path.resolve(process.cwd(), 'data', 'smg_corelink.db');
+  // Vercel functions can write only to /tmp. The database remains ephemeral
+  // there, so persistent production data must be moved to a managed database
+  // (for example the included Supabase schema) before a production launch.
+  const targetPath =
+    dbPath ??
+    (process.env.VERCEL === '1'
+      ? path.join('/tmp', 'smg_corelink.db')
+      : path.resolve(process.cwd(), 'data', 'smg_corelink.db'));
   if (targetPath !== ':memory:') {
     fs.mkdirSync(path.dirname(targetPath), { recursive: true });
   }
