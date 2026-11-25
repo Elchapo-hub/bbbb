@@ -7,7 +7,7 @@ import {defineConfig} from 'vite';
 export default defineConfig(() => {
   return {
     plugins: [
-     
+     base: process.env.VITE_BASE_PATH  || '/ ',
       react(),
       tailwindcss(),
       // Copies src/assets into dist/ so root-relative URLs like
