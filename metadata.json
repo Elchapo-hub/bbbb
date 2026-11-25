@@ -1,0 +1,6 @@
+{
+  "name": "SMG Corelink",
+  "description": "Tanzanian domestic and international B2C & B2B e-commerce platform with dual-currency TZS/USD pricing, milestone escrow, and multi-corridor logistics.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

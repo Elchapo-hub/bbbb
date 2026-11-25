@@ -1,0 +1,1127 @@
+# PROJECT: SMG CORELINK — FULLY FUNCTIONAL E-COMMERCE MVP
+
+## 1. ROLE AND DEVELOPMENT OBJECTIVE
+
+Act as a senior full-stack software architect, UI/UX designer, database engineer, and payment integration specialist.
+
+Build a complete, production-minded Minimum Viable Product (MVP) for **SMG Corelink**, a Tanzanian-based domestic and international e-commerce and B2B trading platform.
+
+This must be a working application, not a static website, UI demonstration, or collection of disconnected dashboards.
+
+Every major feature must connect to the database and perform its intended function.
+
+The application must support:
+- Domestic Tanzanian customers.
+- International customers.
+- Retail B2C purchases.
+- Wholesale and B2B purchases.
+- Verified merchants and manufacturers.
+- Platform administrators.
+- Order management and logistics.
+- Dual-currency pricing in TZS and USD.
+
+Build the application in modular phases while maintaining one consistent architecture.
+
+## 2. TECHNOLOGY STACK
+
+Use the following technology stack:
+
+### Frontend
+- Next.js with App Router.
+- React.
+- TypeScript.
+- Tailwind CSS.
+- Responsive design for desktop, tablet and mobile.
+- Lucide icons.
+
+### Backend
+Use Supabase as the primary backend.
+
+Implement:
+- Supabase PostgreSQL database.
+- Supabase Authentication.
+- Supabase Row Level Security (RLS).
+- Supabase Storage.
+- Supabase Edge Functions.
+- Database triggers where appropriate.
+- Secure server-side operations.
+
+### Deployment
+- Vercel for frontend deployment.
+- Supabase for backend infrastructure.
+- Environment variables for all credentials and API keys.
+
+Do not introduce PHP or a separate Node.js/Express backend unless a documented technical requirement makes it necessary.
+
+## 3. BRAND IDENTITY AND DESIGN SYSTEM
+
+Use the official SMG Corelink visual identity.
+
+Brand colours:
+
+- Primary background: Midnight Navy #050B18.
+- Secondary background: #0B1426.
+- Primary accent: Metallic Gold #F5B82E.
+- Secondary gold: #D4931D.
+- Success and verification: #10B981.
+- Main typography: White #FFFFFF.
+- Secondary typography: #94A3B8.
+
+Design requirements:
+- Premium international commerce appearance.
+- Clean, modern and professional interface.
+- Consistent spacing and typography.
+- Elegant product cards.
+- Clear navigation.
+- Smooth but subtle transitions.
+- Accessible forms and buttons.
+- Professional tables and dashboards.
+- Responsive mobile navigation.
+- Loading, empty, success and error states.
+
+Avoid excessive gradients, unnecessary animations and cluttered layouts.
+
+## 4. USER ROLES AND ACCESS CONTROL
+
+Implement four main user roles.
+
+### A. Customer
+Customers must be able to:
+- Register and log in.
+- Verify their email.
+- Manage their profile.
+- Add and manage delivery addresses.
+- Browse products.
+- Search and filter products.
+- Compare product prices.
+- Add products to cart.
+- Apply discount codes.
+- Calculate shipping.
+- Select payment methods.
+- Place orders.
+- View invoices.
+- Track orders.
+- View order history.
+- Submit reviews.
+- Request returns and refunds.
+
+### B. Merchant / Seller
+Merchants must be able to:
+- Register as merchants.
+- Submit business verification information.
+- Upload business documents.
+- Manage their business profile.
+- Add products.
+- Upload product images.
+- Edit product information.
+- Set TZS or USD base prices.
+- Manage inventory.
+- Configure product variants.
+- Create promotions.
+- Configure wholesale quantity discounts.
+- Receive and manage orders.
+- Update order fulfilment status.
+- View sales reports.
+- View earnings and settlement records.
+
+Merchants must not access another merchant's private records.
+
+### C. Administrator
+Administrators must have access to a dedicated admin dashboard.
+
+They must be able to:
+- View total customers.
+- View total merchants.
+- Approve or reject merchant verification.
+- Manage customers.
+- Manage merchants.
+- Manage products.
+- Manage categories.
+- Manage orders.
+- Manage payments.
+- Manage refunds.
+- Manage logistics.
+- Manage discount codes.
+- Configure VAT rates.
+- Configure FX rates.
+- Manage shipping corridors.
+- Review escrow transactions.
+- Manage platform settings.
+- View analytics and reports.
+- Suspend or reactivate accounts.
+
+### D. Logistics / Operations Staff
+Operations staff must be able to:
+- View assigned shipments.
+- Update shipment status.
+- Enter tracking references.
+- Upload shipping documents.
+- Confirm packing and inspection.
+- Confirm dispatch.
+- Confirm delivery.
+- Record delivery OTP verification.
+
+Use role-based permissions and Supabase RLS for all protected operations.
+
+Never rely only on frontend role checks.
+
+## 5. PRODUCT CATALOGUE
+
+Implement all eight categories from the SMG Corelink specification.
+
+### CAT-01: Men's Clothing
+Support:
+- Official suits.
+- Two-piece and three-piece suits.
+- Tuxedos.
+- Blazers.
+- Chinos.
+- Polo shirts.
+- Oxford shirts.
+
+Attributes:
+- Size.
+- Fit.
+- Fabric.
+- Colour.
+- Origin.
+- Care instructions.
+- Garment weight.
+
+### CAT-02: Men's Fashion Shoes
+Support:
+- Oxford shoes.
+- Derbies.
+- Monk straps.
+- Loafers.
+- Sneakers.
+- Sandals.
+
+Attributes:
+- EU/UK shoe size.
+- Upper material.
+- Sole type.
+- Colour.
+- Authenticity status.
+- Package dimensions.
+
+### CAT-03: Women's Suits
+Support:
+- Executive skirt suits.
+- Trouser suits.
+- Blazer sets.
+- Smart-casual co-ords.
+
+Attributes:
+- Size.
+- Cut.
+- Fabric composition.
+- Lining type.
+- Colour.
+- Made-to-order option.
+- Production lead time.
+
+### CAT-04: Women's Shoes
+Support:
+- Heels.
+- Pumps.
+- Flats.
+- Sneakers.
+- Wedges.
+- Sandals.
+
+Attributes:
+- Shoe size.
+- Heel height.
+- Material.
+- Colour.
+- Authenticity status.
+- Size exchange eligibility.
+
+### CAT-05: Handbags
+Support:
+- Totes.
+- Crossbody bags.
+- Briefcases.
+- Evening clutches.
+- Travel duffels.
+
+Attributes:
+- Dimensions.
+- Material.
+- Hardware finish.
+- Brand or artisan certificate.
+- Protective packaging.
+
+### CAT-06: Watches
+Support:
+- Automatic watches.
+- Quartz watches.
+- Chronographs.
+- Smartwatches.
+- Luxury gift sets.
+
+Attributes:
+- Case diameter.
+- Strap material.
+- Water resistance.
+- Movement.
+- Serial number.
+- Warranty period.
+
+### CAT-07: Smartphones
+Support:
+- Apple iPhone.
+- Samsung Galaxy.
+- Xiaomi.
+- Google Pixel.
+- Other approved smartphone brands.
+
+Attributes:
+- Storage.
+- RAM.
+- Colour.
+- Network.
+- SIM configuration.
+- Condition.
+- IMEI registration.
+- TCRA approval status.
+- Warranty.
+
+### CAT-08: Electrical Materials
+Support:
+- Armoured cables.
+- PVC cables.
+- Circuit breakers.
+- MCB/MCCB.
+- Distribution boards.
+- LED floodlights.
+- Solar inverters.
+- Electrical sockets.
+
+Attributes:
+- Voltage.
+- Amperage.
+- Cable cross-section.
+- IP rating.
+- Unit or roll length.
+- TBS certification.
+- IEC certification.
+- Minimum order quantity.
+
+Build a flexible category and product-attribute system instead of hardcoding different product forms throughout the application.
+
+## 6. STOREFRONT
+
+Create the following customer-facing pages:
+
+1. Homepage.
+2. Shop all products.
+3. Category pages.
+4. Product details.
+5. Search results.
+6. Product comparison.
+7. Shopping cart.
+8. Checkout.
+9. Payment confirmation.
+10. Customer account.
+11. Order history.
+12. Order tracking.
+13. Wishlist.
+14. About SMG Corelink.
+15. Contact page.
+16. Merchant registration.
+17. Help and support.
+18. Terms and conditions.
+19. Privacy policy.
+
+### Homepage
+
+Include:
+- Premium hero section.
+- Featured products.
+- Product categories.
+- New arrivals.
+- Best sellers.
+- Verified merchants.
+- Promotional banners.
+- Wholesale purchasing section.
+- International trade section.
+- Customer testimonials.
+- Footer with company information.
+
+### Product cards
+
+Every product card must show:
+- Product image.
+- Product name.
+- Category.
+- Merchant.
+- Merchant verification badge.
+- Stock availability.
+- Discount percentage when applicable.
+- TZS price.
+- USD price.
+- Add-to-cart button.
+- Wishlist button.
+
+Always display both currencies.
+
+## 7. DUAL-CURRENCY PRICING ENGINE
+
+Implement TZS and USD throughout the entire application.
+
+Each product must have:
+- Base price.
+- Base currency.
+- Converted price.
+- Last FX update timestamp.
+
+Merchants may enter prices in either TZS or USD.
+
+Create an FX service that:
+- Fetches the configured exchange rate.
+- Supports Bank of Tanzania or approved commercial-bank rate sources.
+- Updates the rate every 60 minutes when a reliable provider is configured.
+- Supports a configurable FX spread.
+- Stores historical exchange rates.
+- Allows administrators to update the rate manually.
+- Maintains a fallback rate when the provider is unavailable.
+
+Checkout must lock the FX rate for 15 minutes.
+
+The locked exchange rate must be stored permanently against the order once the order is created.
+
+Display currency according to the user's preference:
+- TZS primary, USD secondary.
+- USD primary, TZS secondary.
+
+Do not use different conversion rates for the product, shipping, tax and order total within the same checkout.
+
+Use decimal-safe financial calculations. Never use floating-point arithmetic for financial storage or rounding.
+
+## 8. DISCOUNT ENGINE
+
+Implement three discount types.
+
+### Product promotions
+- Percentage discounts.
+- Fixed amount discounts.
+- Start and expiry dates.
+- Active/inactive status.
+
+### Wholesale discounts
+Allow merchants to define quantity-based discounts.
+
+Example:
+- 5 units: 10% discount.
+- 15 units: 15% discount.
+- 30 units: configurable discount.
+
+### Coupon codes
+Support:
+- Percentage coupons.
+- Fixed-value coupons.
+- Minimum purchase amount.
+- Maximum discount.
+- Expiration.
+- Usage limits.
+- Customer eligibility.
+- Active/inactive status.
+
+Ensure discounts cannot be manipulated through frontend requests.
+
+## 9. TAX ENGINE
+
+Implement configurable tax rules based on the SMG specification.
+
+Default configuration:
+
+- TAX-TZ-STD: 18% domestic standard VAT.
+- TAX-TZ-DIG: 16% eligible electronic B2C VAT, subject to current legal eligibility.
+- TAX-EXP-00: 0% verified international export VAT.
+- TAX-EXEMPT: 0% verified exempt transaction.
+
+The administrator must be able to configure tax rates and rules.
+
+Tax logic must consider:
+- Customer destination.
+- Transaction type.
+- Buyer tax profile.
+- Payment eligibility.
+- Export documentation.
+- Exemption documentation.
+
+Do not automatically classify every international order as zero-rated without the required export evidence.
+
+Generate itemised tax records for every order.
+
+Important: Keep tax rates configurable and subject to verification against current TRA and Finance Act requirements before live deployment.
+
+## 10. SHIPPING AND LOGISTICS ENGINE
+
+Implement four logistics corridors.
+
+### LOG-01: Dar Express
+Coverage:
+- Kinondoni.
+- Ilala.
+- Temeke.
+- Ubungo.
+- Kigamboni.
+
+Incoterm: DDP.
+
+Initial pricing:
+- Base: TZS 5,000 for up to 5 kg.
+- Additional weight: TZS 800/kg.
+- Estimated delivery: same day, 2–6 hours.
+
+### LOG-02: Upcountry Tanzania
+Coverage:
+- Arusha.
+- Mwanza.
+- Dodoma.
+- Mbeya.
+- Tanga.
+- Mtwara.
+- Zanzibar.
+
+Incoterm: DDP.
+
+Initial pricing:
+- Base: TZS 15,000 for up to 5 kg.
+- Additional weight: TZS 2,000/kg.
+- Estimated delivery: 1–3 business days.
+
+### LOG-03: EAC & SADC
+Coverage:
+- Kenya.
+- Uganda.
+- Rwanda.
+- Burundi.
+- DRC.
+- Zambia.
+- Malawi.
+
+Incoterm: DAP.
+
+Initial pricing:
+- Base: USD 35.
+- Additional weight: USD 1.80/kg.
+- Insurance: configurable, initially 0.5% of shipment value.
+
+### LOG-04: Global Air & Sea Export
+Coverage:
+- UAE/GCC.
+- EU.
+- UK.
+- USA.
+- China.
+- India.
+
+Incoterms:
+- CIF.
+- EXW.
+
+Initial air freight:
+- USD 6.50/kg.
+
+Sea freight:
+- LCL/FCL rates must be configurable by the administrator or logistics provider.
+
+Implement:
+- Product weight.
+- Product dimensions.
+- Volumetric weight.
+- Chargeable weight.
+- Insurance.
+- Shipping fees.
+- Destination.
+- Delivery estimates.
+- Incoterm.
+- Shipment tracking.
+
+Never invent customs duties or final import charges. Show them as estimates or externally payable amounts when not confirmed.
+
+All shipping rates must be editable in the admin dashboard.
+
+## 11. CHECKOUT AND ORDER CALCULATION
+
+Implement the following calculation sequence:
+
+STEP 1: Calculate product gross total.
+
+Gross item total = Unit price × Quantity.
+
+STEP 2: Calculate product discounts.
+
+Net product subtotal = Gross item total − Product discount.
+
+STEP 3: Apply coupon discount.
+
+Taxable goods base = Net product subtotal − Eligible coupon discount.
+
+STEP 4: Calculate logistics.
+
+Logistics total = Corridor base rate + Chargeable weight × Per-kg rate + Insurance.
+
+STEP 5: Calculate tax.
+
+Taxable amount = Taxable goods base + Taxable logistics charges.
+
+VAT = Taxable amount × Applicable VAT rate.
+
+For verified zero-rated exports, apply the configured export tax rule.
+
+STEP 6: Calculate final total.
+
+Final total = Taxable goods base + Logistics total + VAT.
+
+Store the financial breakdown in the order.
+
+Display:
+- Original product subtotal.
+- Product discount.
+- Coupon discount.
+- Shipping fee.
+- Insurance fee.
+- VAT.
+- Final TZS total.
+- Final USD total.
+- FX rate.
+- Incoterm.
+- Destination.
+
+Recalculate the quote whenever the customer changes:
+- Product quantity.
+- Cart contents.
+- Shipping destination.
+- Coupon code.
+- Buyer tax status.
+
+The server must calculate and validate the final amount. Never trust a total submitted by the browser.
+
+## 12. PAYMENT SYSTEM
+
+Build a unified payment architecture with provider adapters.
+
+Support four payment methods.
+
+### A. Mobile Money
+Prepare integration interfaces for:
+- Vodacom M-Pesa.
+- Mixx by Yas.
+- Airtel Money.
+- HaloPesa.
+
+Requirements:
+- Phone number input.
+- Payment initiation.
+- STK Push where supported.
+- Pending payment state.
+- Webhook confirmation.
+- Timeout handling.
+- Retry handling.
+- Transaction reference.
+- Payment history.
+
+### B. Bank Transfer
+Prepare integration for:
+- CRDB.
+- NMB.
+- NBC.
+- International SWIFT transfers.
+
+Support:
+- Bank transfer instructions.
+- Unique payment reference.
+- Proof-of-payment upload.
+- Admin reconciliation.
+- Verified payment status.
+
+### C. Debit and Credit Cards
+Prepare provider integration for:
+- Visa.
+- Mastercard.
+- American Express where supported.
+
+Support secure provider-hosted checkout and 3D Secure where available.
+
+Never store raw card details.
+
+### D. Corelink Milestone Escrow
+Implement an internal escrow ledger.
+
+Payment states:
+- Awaiting payment.
+- Funded.
+- Escrow held.
+- Packed and inspected.
+- In transit.
+- Delivered.
+- Verified.
+- Released.
+- Refunded.
+- Disputed.
+
+For domestic retail:
+- Funds are marked eligible for release after delivery OTP verification and the required checks.
+
+For exports:
+- Release requires the configured shipping-document and verification workflow.
+
+Important:
+Build escrow accounting as a ledger and operational workflow first. Do not represent ordinary platform-held balances as regulated trust-account funds. Actual escrow settlement must use an appropriately authorised financial partner and approved custody arrangement.
+
+### Payment development rule
+
+Build a working sandbox/test payment flow and provider interfaces.
+
+Do not falsely mark an external payment as successful.
+
+A real payment must only become confirmed after a verified provider response or authorised bank reconciliation.
+
+If a payment provider's credentials are unavailable, show a clear configuration state rather than simulating a successful transaction.
+
+## 13. ORDER MANAGEMENT AND TRACKING
+
+Create an order management system.
+
+Order statuses:
+- Pending.
+- Awaiting Payment.
+- Paid.
+- Escrow Funded.
+- Processing.
+- Packed.
+- Inspected.
+- Dispatched.
+- In Transit.
+- Delivered.
+- Completed.
+- Cancelled.
+- Refunded.
+- Disputed.
+
+Each order must contain:
+- Order ID.
+- Customer ID.
+- Merchant ID.
+- Product line items.
+- Quantity.
+- Locked prices.
+- Locked FX rate.
+- Discounts.
+- Tax breakdown.
+- Shipping breakdown.
+- Payment reference.
+- Shipping reference.
+- Delivery address.
+- Incoterm.
+- Order timeline.
+
+Implement customer-facing order tracking with a visual milestone timeline.
+
+Allow authorised operations staff to update shipment milestones.
+
+Implement OTP verification for domestic delivery.
+
+## 14. INVOICES AND DOCUMENTS
+
+Generate downloadable PDF documents.
+
+Support:
+- Customer invoice.
+- Commercial invoice.
+- Payment receipt.
+- Order summary.
+- Shipping documentation.
+- Export document attachments.
+
+Every invoice must include:
+- SMG Corelink branding.
+- Invoice number.
+- Order number.
+- Seller information.
+- Buyer information.
+- Product details.
+- Quantity.
+- Unit price.
+- Discounts.
+- Shipping.
+- Tax.
+- Total in TZS.
+- Total in USD.
+- FX rate.
+- Invoice date.
+
+Only issue fiscal receipts through an approved TRA EFD integration. A normal PDF invoice must not be presented as an official fiscal receipt.
+
+## 15. DATABASE DESIGN
+
+Create Supabase migrations for the following core tables:
+
+1. profiles
+2. user_roles
+3. customer_addresses
+4. merchants
+5. merchant_documents
+6. categories
+7. products
+8. product_images
+9. product_variants
+10. product_attributes
+11. inventory
+12. price_history
+13. exchange_rates
+14. shipping_corridors
+15. shipping_rates
+16. carts
+17. cart_items
+18. coupons
+19. coupon_redemptions
+20. discount_rules
+21. orders
+22. order_items
+23. order_addresses
+24. order_calculations
+25. payments
+26. payment_events
+27. escrow_accounts
+28. escrow_ledger_entries
+29. shipments
+30. shipment_events
+31. delivery_otps
+32. invoices
+33. reviews
+34. wishlists
+35. wishlist_items
+36. return_requests
+37. refund_requests
+38. notifications
+39. audit_logs
+40. platform_settings
+
+Use:
+- UUID primary keys.
+- Foreign key constraints.
+- Appropriate indexes.
+- Created and updated timestamps.
+- Appropriate unique constraints.
+- Database transactions for financial operations.
+
+Use JSONB for flexible category-specific product attributes where appropriate.
+
+Never store passwords manually.
+
+## 16. REQUIRED REST API
+
+Implement versioned API endpoints.
+
+Products:
+- GET /api/v1/ecommerce/products
+- GET /api/v1/ecommerce/products/:id
+- POST /api/v1/ecommerce/products
+- PATCH /api/v1/ecommerce/products/:id
+- DELETE /api/v1/ecommerce/products/:id
+
+Cart:
+- GET /api/v1/ecommerce/cart
+- POST /api/v1/ecommerce/cart/items
+- PATCH /api/v1/ecommerce/cart/items/:id
+- DELETE /api/v1/ecommerce/cart/items/:id
+- POST /api/v1/ecommerce/cart/quote
+
+Checkout:
+- POST /api/v1/ecommerce/checkout/initiate
+
+Payments:
+- POST /api/v1/ecommerce/payments/initiate
+- GET /api/v1/ecommerce/payments/:id
+- POST /api/v1/ecommerce/payments/webhook
+
+Orders:
+- GET /api/v1/ecommerce/orders
+- GET /api/v1/ecommerce/orders/:id
+- GET /api/v1/ecommerce/orders/:id/tracking
+
+Merchant:
+- GET /api/v1/merchant/dashboard
+- GET /api/v1/merchant/products
+- GET /api/v1/merchant/orders
+
+Admin:
+- GET /api/v1/admin/dashboard
+- GET /api/v1/admin/orders
+- GET /api/v1/admin/merchants
+- PATCH /api/v1/admin/merchants/:id/verification
+
+Protect every endpoint using authentication and role-based authorisation.
+
+Use Edge Functions or secure server-side handlers for privileged financial and payment operations.
+
+## 17. ADMIN DASHBOARD
+
+Build a professional admin dashboard.
+
+Display:
+- Total revenue.
+- Total orders.
+- Pending orders.
+- Completed orders.
+- Total customers.
+- Total merchants.
+- Verified merchants.
+- Pending merchant approvals.
+- Total products.
+- Low-stock products.
+- Pending payments.
+- Escrow balances and movements.
+- Refund requests.
+- Sales charts.
+- Recent transactions.
+
+Create dedicated management pages for each administrative function.
+
+All dashboard metrics must come from actual database records.
+
+## 18. MERCHANT DASHBOARD
+
+Build a merchant dashboard displaying:
+- Total sales.
+- Total orders.
+- Pending orders.
+- Completed orders.
+- Product count.
+- Inventory alerts.
+- Revenue reports.
+- Product performance.
+- Recent transactions.
+
+Allow merchants to manage products, prices, variants, stock, orders and promotions.
+
+## 19. CUSTOMER DASHBOARD
+
+Create a customer dashboard with:
+- Profile management.
+- Saved addresses.
+- Order history.
+- Active orders.
+- Order tracking.
+- Wishlist.
+- Payment history.
+- Downloadable invoices.
+- Return requests.
+- Notification preferences.
+
+## 20. SECURITY AND RELIABILITY
+
+Implement:
+- Supabase RLS on all user-sensitive tables.
+- Server-side input validation.
+- Role-based permissions.
+- Secure file uploads.
+- Restricted document access.
+- Rate limiting on sensitive endpoints.
+- Webhook signature verification.
+- Payment idempotency.
+- Audit logs.
+- Secure environment variables.
+- Protection against unauthorised price changes.
+- Protection against unauthorised order modifications.
+- Server-side financial calculations.
+
+Never expose the Supabase service-role key in frontend code.
+
+Use private storage buckets for sensitive merchant documents and customer documents.
+
+## 21. NOTIFICATIONS
+
+Implement an in-app notification system.
+
+Notify users when:
+- Their account is created.
+- Merchant verification is approved or rejected.
+- An order is placed.
+- Payment is confirmed.
+- An order is packed.
+- An order is dispatched.
+- An order is delivered.
+- A refund is processed.
+
+Structure the system to support email, SMS and WhatsApp integrations later.
+
+## 22. MVP IMPLEMENTATION PRIORITIES
+
+Build in the following order.
+
+PHASE 1 — CORE FOUNDATION
+- Project setup.
+- Supabase connection.
+- Database migrations.
+- Authentication.
+- User roles.
+- RLS.
+- Admin dashboard foundation.
+- Customer dashboard foundation.
+
+PHASE 2 — COMMERCE
+- Eight product categories.
+- Product management.
+- Product variants.
+- Product images.
+- Inventory.
+- Product search.
+- Product filtering.
+- Shopping cart.
+- Wishlist.
+
+PHASE 3 — PRICING AND CHECKOUT
+- TZS/USD pricing.
+- FX rate management.
+- Locked checkout rates.
+- Discounts.
+- Wholesale pricing.
+- Tax calculations.
+- Shipping calculator.
+- Checkout.
+
+PHASE 4 — PAYMENTS AND ORDERS
+- Payment adapters.
+- Sandbox payments.
+- Mobile money integration readiness.
+- Bank transfer reconciliation.
+- Card integration readiness.
+- Escrow ledger.
+- Order management.
+- Tracking.
+- Delivery OTP.
+
+PHASE 5 — OPERATIONS
+- Merchant management.
+- Logistics dashboard.
+- PDF invoices.
+- Notifications.
+- Returns.
+- Refunds.
+- Reports.
+
+PHASE 6 — TESTING AND DEPLOYMENT
+- Security testing.
+- Payment testing.
+- Database testing.
+- Financial calculation testing.
+- Mobile responsiveness.
+- Performance optimisation.
+- Production deployment.
+
+## 23. MVP ACCEPTANCE CRITERIA
+
+The application is not complete until all the following tests pass:
+
+1. A customer can register, log in and manage their profile.
+2. An administrator can log in and manage the platform.
+3. A merchant can register and submit verification documents.
+4. An administrator can approve a merchant.
+5. An approved merchant can publish products.
+6. Customers can browse all eight categories.
+7. Customers can search and filter products.
+8. Every product displays TZS and USD.
+9. Customers can add and remove cart items.
+10. Customers can change quantities.
+11. The system correctly calculates discounts.
+12. The system correctly calculates shipping.
+13. The system correctly calculates VAT based on configured rules.
+14. Checkout locks the FX rate for 15 minutes.
+15. Customers can initiate a payment.
+16. Payment confirmation is validated securely.
+17. A confirmed payment creates the appropriate order and ledger entries.
+18. Merchants can manage their orders.
+19. Operations staff can update shipping milestones.
+20. Customers can track orders.
+21. Delivery OTP can be verified.
+22. Customers can download invoices.
+23. Administrators can configure pricing, taxes and logistics.
+24. RLS prevents users from accessing unauthorised records.
+25. The application works on mobile and desktop.
+
+Create automated tests for critical financial calculations, permissions and payment flows.
+
+Test at least 10,000 simulated cart calculations for currency conversion and rounding consistency before production release.
+
+## 24. DEVELOPMENT RULES
+
+Follow these rules throughout development:
+
+- Build real functionality, not placeholder buttons.
+- Never hardcode fake customer records into production dashboards.
+- Never hardcode financial totals.
+- Never expose secret credentials.
+- Never trust frontend-calculated financial values.
+- Never mark a payment successful without confirmation.
+- Never allow customers to edit paid order totals.
+- Never allow merchants to edit another merchant's products.
+- Never expose private merchant or customer documents.
+- Never silently ignore failed database operations.
+- Provide useful error messages.
+- Add loading states and empty states.
+- Keep code modular and maintainable.
+- Use reusable components.
+- Document all environment variables.
+- Create database migrations.
+- Provide a README with installation instructions.
+- Provide seed data for development only.
+- Include automated tests.
+
+If an external API or financial provider is not configured, implement its integration interface and a clearly labelled sandbox or pending state. Do not pretend that the external service is live.
+
+## 25. FINAL DELIVERABLES
+
+Deliver:
+
+1. Complete Next.js source code.
+2. Supabase database migrations.
+3. Supabase RLS policies.
+4. Supabase Edge Functions.
+5. Responsive customer storefront.
+6. Admin dashboard.
+7. Merchant dashboard.
+8. Operations dashboard.
+9. Customer account dashboard.
+10. Working shopping cart.
+11. Dual-currency pricing engine.
+12. Tax and discount engine.
+13. Logistics calculator.
+14. Checkout system.
+15. Payment integration architecture.
+16. Escrow ledger.
+17. Order tracking system.
+18. PDF invoice generation.
+19. Automated tests.
+20. Environment variable template.
+21. Installation and deployment documentation.
+
+### FINAL INSTRUCTION
+
+Start by inspecting the existing project structure.
+
+If the project is empty, initialise it using the specified stack.
+
+If the project already contains code, preserve working functionality and extend the existing architecture rather than unnecessarily rebuilding everything.
+
+First implement the database, authentication and core commerce workflow. Then implement the remaining modules in the defined phases.
+
+Do not stop after generating a plan, wireframe or homepage.
+
+Continue implementing, testing and fixing the application until the complete MVP acceptance criteria are satisfied.
+
+At the end of each phase, report:
+- Features completed.
+- Database changes.
+- Pages created.
+- Tests passed.
+- Known limitations.
+- External credentials or integrations still required.
+
+The final result must be a cohesive, functional SMG Corelink e-commerce MVP that can be deployed and extended into a full international commerce platform.
